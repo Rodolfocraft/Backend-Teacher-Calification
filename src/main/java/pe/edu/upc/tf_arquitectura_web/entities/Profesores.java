@@ -1,6 +1,7 @@
 package pe.edu.upc.tf_arquitectura_web.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
+//Tabla Profesores
 @Entity
 @Table(name = "Profesores")
 public class Profesores {

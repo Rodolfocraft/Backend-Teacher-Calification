@@ -1,5 +1,5 @@
 package pe.edu.upc.tf_arquitectura_web.entities;
-
+//Students
 import javax.persistence.*;
 
 @Entity

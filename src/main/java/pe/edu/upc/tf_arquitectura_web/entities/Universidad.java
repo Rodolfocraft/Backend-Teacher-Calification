@@ -3,7 +3,7 @@ package pe.edu.upc.tf_arquitectura_web.entities;
 
 import javax.persistence.*;
 //import java.time.LocalDate;
-
+//University
 @Entity
 @Table(name = "Universidad")
 public class Universidad {
