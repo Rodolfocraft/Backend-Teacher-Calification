@@ -7,6 +7,8 @@ import pe.edu.upc.tf_arquitectura_web.entities.Curso;
 
 import java.util.List;
 
+// implementar querie contar universidad por curso
+
 @Repository
 public interface ICursoRepository extends JpaRepository<Curso, Integer> {
 
