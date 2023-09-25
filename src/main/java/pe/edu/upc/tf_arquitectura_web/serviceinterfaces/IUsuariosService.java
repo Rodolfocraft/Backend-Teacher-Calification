@@ -9,4 +9,5 @@ public interface IUsuariosService {
     public List<Usuarios> list();
     public void delete(int idUsuarios);
     public Usuarios listId(int id);
+    public List<String[]> ordensegunfechanacimiento();
 }

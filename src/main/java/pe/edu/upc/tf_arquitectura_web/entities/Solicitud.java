@@ -1,7 +1,7 @@
 package pe.edu.upc.tf_arquitectura_web.entities;
 
 import javax.persistence.*;
-
+//crud-solicitud
 @Entity
 @Table(name = "solicitud")
 public class Solicitud {

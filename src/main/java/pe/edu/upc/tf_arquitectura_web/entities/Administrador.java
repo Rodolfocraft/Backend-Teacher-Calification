@@ -2,6 +2,8 @@ package pe.edu.upc.tf_arquitectura_web.entities;
 
 import javax.persistence.*;
 
+// crud administrador
+
 @Entity
 @Table(name = "Administrador")
 public class Administrador {

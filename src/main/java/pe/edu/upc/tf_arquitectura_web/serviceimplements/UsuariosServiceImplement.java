@@ -28,5 +28,5 @@ public class UsuariosServiceImplement implements IUsuariosService {
         return pR.findById(id).orElse(new Usuarios());
     }
 
-
+    public List<String[]> ordensegunfechanacimiento(){return pR.ordensegunfechanacimiento();}
 }

@@ -1,10 +1,15 @@
 package pe.edu.upc.tf_arquitectura_web.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.tf_arquitectura_web.dtos.CursoUniversidadDTO;
+import pe.edu.upc.tf_arquitectura_web.dtos.ProfesorUniversidadDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.ProfesoresDTO;
 import pe.edu.upc.tf_arquitectura_web.entities.Profesores;
 import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.IProfesoresService;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,5 +45,17 @@ public class ProfesoresController {
         Profesores p = m.map(dto,Profesores.class);
         pS.insert(p);
     }
-
+    @GetMapping("/cantidadprofesores")
+    @PreAuthorize("hasAuthority('USER')")
+    public List<ProfesorUniversidadDTO> cantidadDeProfesoresPorUniversidad() {
+        List<String[]> lista = pS.cantidadDeProfesoresPorUniversidad();
+        List<ProfesorUniversidadDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            ProfesorUniversidadDTO dto = new ProfesorUniversidadDTO();
+            dto.setNombreUniversidad(data[0]);
+            dto.setCantidadProfesores(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
 }

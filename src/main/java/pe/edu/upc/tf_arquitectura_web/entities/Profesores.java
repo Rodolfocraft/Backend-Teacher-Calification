@@ -19,15 +19,20 @@ public class Profesores {
     @JoinColumn(name = "CalificacionDocente")
     private CalificacionDocente calificacionDocente;
 
+    @ManyToOne
+    @JoinColumn(name= "idUniversity")
+    private Universidad universidad;
+
     public Profesores() {
     }
 
-    public Profesores(int id, String codProfesor, String nombre, String apellido, CalificacionDocente calificacionDocente) {
+    public Profesores(int id, String codProfesor, String nombre, String apellido, CalificacionDocente calificacionDocente, Universidad universidad) {
         this.id = id;
         this.codProfesor = codProfesor;
         this.nombre = nombre;
         this.apellido = apellido;
         this.calificacionDocente = calificacionDocente;
+        this.universidad = universidad;
     }
 
     public int getId() {
@@ -68,5 +73,13 @@ public class Profesores {
 
     public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
         this.calificacionDocente = calificacionDocente;
+    }
+
+    public Universidad getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(Universidad universidad) {
+        this.universidad = universidad;
     }
 }

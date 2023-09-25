@@ -9,4 +9,6 @@ public interface IStudentsService {
     public List<Students> list();
     public void delete(int idStudents);
     public Students listId(int idStudents);
+
+    public List<String[]> cantidadDeestudiantesporsucodigo();
 }
