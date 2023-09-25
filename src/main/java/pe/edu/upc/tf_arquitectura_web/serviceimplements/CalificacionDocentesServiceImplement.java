@@ -35,4 +35,9 @@ public class CalificacionDocentesServiceImplement implements ICalificacionDocent
     public CalificacionDocente listId(int idCalificacionDocente) {
         return cR.findById(idCalificacionDocente).orElse(new CalificacionDocente());
     }
+
+    @Override
+    public List<String[]> quantyCalificationByTeacher() {
+        return cR.quantyCalificationByTeacher();
+    }
 }

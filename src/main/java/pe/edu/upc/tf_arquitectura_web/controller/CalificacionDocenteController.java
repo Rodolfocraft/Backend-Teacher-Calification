@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.tf_arquitectura_web.dtos.CalificacionDocenteDTO;
+import pe.edu.upc.tf_arquitectura_web.dtos.StudentsCalificaciónDocenteDTO;
 import pe.edu.upc.tf_arquitectura_web.entities.CalificacionDocente;
 import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.ICalificacionDocenteService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +45,20 @@ public class CalificacionDocenteController {
         ModelMapper m = new ModelMapper();
         CalificacionDocenteDTO dto = m.map(cD.listId(id), CalificacionDocenteDTO.class);
         return dto;
+    }
+
+    @GetMapping("cantidadCalificaciones")
+    @PreAuthorize("hasAuthority('USER')")
+    public List<StudentsCalificaciónDocenteDTO> cantidadCalificacionesPorProfesor(){
+        List<String[]> lista=cD.quantyCalificationByTeacher();
+        List<StudentsCalificaciónDocenteDTO>listaDTO=new ArrayList<>();
+        for(String[] data: lista){
+            StudentsCalificaciónDocenteDTO dto=new StudentsCalificaciónDocenteDTO();
+            dto.setNameProfesor(data[0]);
+            dto.setQuantityCalifications(Integer.parseInt(data[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }

@@ -9,4 +9,6 @@ public interface ICalificacionDocenteService {
     public List<CalificacionDocente> list();
     public void delete(int idCalificacionDocente);
     public CalificacionDocente listId(int idCalificacionDocente);
+
+    public List<String[]> quantyCalificationByTeacher();
 }
