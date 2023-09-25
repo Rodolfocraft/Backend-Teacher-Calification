@@ -27,5 +27,7 @@ public class ProfesoresServiceImplement implements IProfesoresService {
         return pR.findById(idProfesores).orElse(new Profesores());
     }
 
-
+    public List<String[]> cantidadDeProfesoresPorUniversidad() {
+        return pR.cantidadDeProfesoresPorUniversidad();
+    }
 }
