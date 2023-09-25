@@ -1,6 +1,7 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
 
 import pe.edu.upc.tf_arquitectura_web.entities.CalificacionDocente;
+import pe.edu.upc.tf_arquitectura_web.entities.Universidad;
 
 public class ProfesoresDTO {
     private int id;
@@ -8,6 +9,7 @@ public class ProfesoresDTO {
     private String nombre;
     private String apellido;
     private CalificacionDocente calificacionDocente;
+    private Universidad universidad;
 
     public int getId() {
         return id;
@@ -47,5 +49,12 @@ public class ProfesoresDTO {
 
     public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
         this.calificacionDocente = calificacionDocente;
+    }
+    public Universidad getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(Universidad universidad) {
+        this.universidad = universidad;
     }
 }
