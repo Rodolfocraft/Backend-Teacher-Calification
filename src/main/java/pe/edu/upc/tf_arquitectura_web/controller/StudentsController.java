@@ -3,11 +3,13 @@ package pe.edu.upc.tf_arquitectura_web.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.tf_arquitectura_web.dtos.StudentsDTO;
 import pe.edu.upc.tf_arquitectura_web.entities.Students;
 import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.IStudentsService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,5 +46,18 @@ public class StudentsController {
         ModelMapper m = new ModelMapper();
         StudentsDTO dto = m.map(sS.listId(id), StudentsDTO.class);
         return dto;
+    }
+    @GetMapping("/cantidaddealumnos")
+    @PreAuthorize("hasAuthority('USER')")
+    public List<StudentsDTO> cantidadDeestudiantesporsucodigo() {
+        List<String[]> lista = sS.cantidadDeestudiantesporsucodigo();
+        List<StudentsDTO> listaDTO = new ArrayList<>();
+        for (String[] data : lista) {
+            StudentsDTO dto = new StudentsDTO();
+            dto.setCodStudents(data[1]);
+
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

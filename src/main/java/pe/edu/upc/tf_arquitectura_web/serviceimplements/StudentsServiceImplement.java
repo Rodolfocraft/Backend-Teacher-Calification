@@ -33,5 +33,7 @@ public class StudentsServiceImplement implements IStudentsService {
         return pR.findById(idStudents).orElse(new Students());
     }
 
+    @Override
+    public List<String[]> cantidadDeestudiantesporsucodigo(){return pR.cantidadDeestudiantesporsucodigo();}
 
 }
