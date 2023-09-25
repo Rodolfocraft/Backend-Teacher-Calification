@@ -1,7 +1,7 @@
 package pe.edu.upc.tf_arquitectura_web.entities;
 
 import javax.persistence.*;
-
+//Crud Curso
 @Entity
 @Table(name = "Curso")
 public class Curso {
