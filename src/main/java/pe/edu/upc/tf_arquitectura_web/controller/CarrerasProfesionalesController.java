@@ -10,7 +10,7 @@ import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.ICarrerasProfesionalesSe
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+//Crud Carrera Profesional
 @RestController
 @RequestMapping("/CarrerasProfesionales")
 public class CarrerasProfesionalesController {
