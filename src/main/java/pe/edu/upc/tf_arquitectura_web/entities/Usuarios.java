@@ -2,6 +2,8 @@ package pe.edu.upc.tf_arquitectura_web.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+// crud usuario
+
 @Entity
 @Table(name = "Usuarios")
 public class Usuarios {
