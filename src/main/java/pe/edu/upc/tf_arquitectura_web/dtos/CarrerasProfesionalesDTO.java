@@ -1,12 +1,16 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
 
-import pe.edu.upc.tf_arquitectura_web.entities.CalificacionDocente;
+
+import javax.persistence.Column;
 
 public class CarrerasProfesionalesDTO {
     private int id;
     private String codCarreraProfesional;
     private String nombreCarreraProfesional;
-    private CalificacionDocente calificacionDocente;
+    private String tipo;
+    private String facultad;
+    private int ciclo;
+
 
     public int getId() {
         return id;
@@ -32,11 +36,27 @@ public class CarrerasProfesionalesDTO {
         this.nombreCarreraProfesional = nombreCarreraProfesional;
     }
 
-    public CalificacionDocente getCalificacionDocente() {
-        return calificacionDocente;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
-        this.calificacionDocente = calificacionDocente;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getFacultad() {
+        return facultad;
+    }
+
+    public void setFacultad(String facultad) {
+        this.facultad = facultad;
+    }
+
+    public int getCiclo() {
+        return ciclo;
+    }
+
+    public void setCiclo(int ciclo) {
+        this.ciclo = ciclo;
     }
 }

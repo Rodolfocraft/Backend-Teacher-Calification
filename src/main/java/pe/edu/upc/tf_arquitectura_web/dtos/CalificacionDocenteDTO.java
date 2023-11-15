@@ -1,19 +1,30 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
 
-import pe.edu.upc.tf_arquitectura_web.entities.Usuarios;
+import pe.edu.upc.tf_arquitectura_web.entities.*;
 
+import java.time.LocalDate;
 
 public class CalificacionDocenteDTO {
     private int id;
-    private String codCalificacionDocente;
-    private String codAlumno;
+
     private int valoracion;
-    private String codUniversidad;
-    private String codProfesor;
-    private String codCurso;
-    private String codCarrerasProfesionales;
+
     private int recomendacion;
-    private Usuarios usuarios;
+
+    private LocalDate fechapublicacion;
+
+    private Profesores profesores;
+
+    private Curso curso;
+
+    private CarrerasProfesionales carrerasProfesionales;
+
+    private Universidad universidad;
+
+    private Alumno alumno;
+
+    private Administrador administrador;
+
 
     public int getId() {
         return id;
@@ -21,22 +32,6 @@ public class CalificacionDocenteDTO {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCodCalificacionDocente() {
-        return codCalificacionDocente;
-    }
-
-    public void setCodCalificacionDocente(String codCalificacionDocente) {
-        this.codCalificacionDocente = codCalificacionDocente;
-    }
-
-    public String getCodAlumno() {
-        return codAlumno;
-    }
-
-    public void setCodAlumno(String codAlumno) {
-        this.codAlumno = codAlumno;
     }
 
     public int getValoracion() {
@@ -47,38 +42,6 @@ public class CalificacionDocenteDTO {
         this.valoracion = valoracion;
     }
 
-    public String getCodUniversidad() {
-        return codUniversidad;
-    }
-
-    public void setCodUniversidad(String codUniversidad) {
-        this.codUniversidad = codUniversidad;
-    }
-
-    public String getCodProfesor() {
-        return codProfesor;
-    }
-
-    public void setCodProfesor(String codProfesor) {
-        this.codProfesor = codProfesor;
-    }
-
-    public String getCodCurso() {
-        return codCurso;
-    }
-
-    public void setCodCurso(String codCurso) {
-        this.codCurso = codCurso;
-    }
-
-    public String getCodCarrerasProfesionales() {
-        return codCarrerasProfesionales;
-    }
-
-    public void setCodCarrerasProfesionales(String codCarrerasProfesionales) {
-        this.codCarrerasProfesionales = codCarrerasProfesionales;
-    }
-
     public int getRecomendacion() {
         return recomendacion;
     }
@@ -87,11 +50,59 @@ public class CalificacionDocenteDTO {
         this.recomendacion = recomendacion;
     }
 
-    public Usuarios getUsuarios() {
-        return usuarios;
+    public LocalDate getFechapublicacion() {
+        return fechapublicacion;
     }
 
-    public void setUsuarios(Usuarios usuarios) {
-        this.usuarios = usuarios;
+    public void setFechapublicacion(LocalDate fechapublicacion) {
+        this.fechapublicacion = fechapublicacion;
+    }
+
+    public Profesores getProfesores() {
+        return profesores;
+    }
+
+    public void setProfesores(Profesores profesores) {
+        this.profesores = profesores;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public CarrerasProfesionales getCarrerasProfesionales() {
+        return carrerasProfesionales;
+    }
+
+    public void setCarrerasProfesionales(CarrerasProfesionales carrerasProfesionales) {
+        this.carrerasProfesionales = carrerasProfesionales;
+    }
+
+    public Universidad getUniversidad() {
+        return universidad;
+    }
+
+    public void setUniversidad(Universidad universidad) {
+        this.universidad = universidad;
+    }
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 }

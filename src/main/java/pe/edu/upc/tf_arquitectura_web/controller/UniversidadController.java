@@ -2,7 +2,7 @@ package pe.edu.upc.tf_arquitectura_web.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.tf_arquitectura_web.dtos.StudentsDTO;
+import pe.edu.upc.tf_arquitectura_web.dtos.AlumnoDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.UniversidadDTO;
 import pe.edu.upc.tf_arquitectura_web.entities.Universidad;
 import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.IUniversidadService;
@@ -16,6 +16,13 @@ public class UniversidadController {
     private IUniversidadService pS;
     @PostMapping
     public void registrar(@RequestBody UniversidadDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Universidad p = m.map(dto, Universidad.class);
+        pS.insert(p);
+
+    }
+    @PutMapping
+    public void modificar(@RequestBody UniversidadDTO dto) {
         ModelMapper m = new ModelMapper();
         Universidad p = m.map(dto, Universidad.class);
         pS.insert(p);

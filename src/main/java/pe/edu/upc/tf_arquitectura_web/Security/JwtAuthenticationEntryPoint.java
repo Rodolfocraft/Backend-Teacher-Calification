@@ -1,4 +1,4 @@
-package pe.edu.upc.tf_arquitectura_web.Security;
+package pe.edu.upc.tf_arquitectura_web.security;
 
 import java.io.IOException;
 import java.io.Serializable;

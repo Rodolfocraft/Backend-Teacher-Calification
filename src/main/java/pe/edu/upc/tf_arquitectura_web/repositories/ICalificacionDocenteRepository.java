@@ -9,9 +9,9 @@ import java.util.List;
 
 @Repository
 public interface ICalificacionDocenteRepository extends JpaRepository<CalificacionDocente,Integer> {
-    @Query(value = "select p.nombre, count (c.cod_profesor) as \"Numero de calificaciones\"\n" +
+    @Query(value = "select p.nombre, count (c.id_profesores) as \"Numero de calificaciones\"\n" +
             "from profesores p inner join calificacion c\n" +
-            "on p.cod_profesor = c.cod_profesor\n" +
+            "on p.id = c.id_profesores\n" +
             "group by p.nombre", nativeQuery = true)
 
     public List<String[]> quantyCalificationByTeacher();
