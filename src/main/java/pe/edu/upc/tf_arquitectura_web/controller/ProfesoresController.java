@@ -1,8 +1,8 @@
 package pe.edu.upc.tf_arquitectura_web.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.tf_arquitectura_web.dtos.CursoDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.CursoUniversidadDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.ProfesorUniversidadDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.ProfesoresDTO;
@@ -45,8 +45,14 @@ public class ProfesoresController {
         Profesores p = m.map(dto,Profesores.class);
         pS.insert(p);
     }
+    @GetMapping("/{id}")
+    public ProfesoresDTO listId(@PathVariable("id") Integer id){
+        ModelMapper m = new ModelMapper();
+        ProfesoresDTO dto = m.map(pS.listId(id), ProfesoresDTO.class);
+        return dto;
+    }
+
     @GetMapping("/cantidadprofesores")
-    @PreAuthorize("hasAuthority('USER')")
     public List<ProfesorUniversidadDTO> cantidadDeProfesoresPorUniversidad() {
         List<String[]> lista = pS.cantidadDeProfesoresPorUniversidad();
         List<ProfesorUniversidadDTO> listaDTO = new ArrayList<>();

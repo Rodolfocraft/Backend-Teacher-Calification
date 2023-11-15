@@ -10,37 +10,37 @@ public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "usuario", length = 45, nullable = false)
-    private String usuario;
-    @Column(name = "contraseña", length = 45, nullable = false)
-    private String contraseña;
-    @Column(name = "correo", length = 45, nullable = false)
-    private String correo;
-    @Column(name = "telefono", length = 9, nullable = false)
-    private String telefono;
-    @Column(name = "fechanac", nullable = false)
-    private LocalDate fechanac;
-    @Column(name = "nombre", length = 45, nullable = false)
-    private String nombre;
     @Column(name = "apellido", length = 45, nullable = false)
     private String apellido;
-    @Column(name = "tipousuario", length = 45, nullable = false)
-    private String tipousuario;
+    @Column(name = "nombre", length = 45, nullable = false)
+    private String nombre;
+    @Column(name = "fechanac", nullable = false)
+    private LocalDate fechanac;
+    @Column(name = "contrasena", length = 45, nullable = false)
+    private String contrasena;
+    @Column(name = "telefono", length = 9, nullable = false)
+    private String telefono;
+    @Column(name = "correo", length = 45, nullable = false)
+    private String correo;
+    @Column(name = "genero", length = 15, nullable = false)
+    private String genero;
+    @Column(name = "direccion", length = 55, nullable = false)
+    private String direccion;
 
 
     public Usuarios() {
     }
 
-    public Usuarios(int id, String usuario, String contraseña, String correo, String telefono, LocalDate fechanac, String nombre, String apellido, String tipousuario) {
+    public Usuarios(int id, String apellido, String nombre, LocalDate fechanac, String contrasena, String telefono, String correo, String genero, String direccion) {
         this.id = id;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.correo = correo;
-        this.telefono = telefono;
-        this.fechanac = fechanac;
-        this.nombre = nombre;
         this.apellido = apellido;
-        this.tipousuario = tipousuario;
+        this.nombre = nombre;
+        this.fechanac = fechanac;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.genero = genero;
+        this.direccion = direccion;
     }
 
     public int getId() {
@@ -51,44 +51,12 @@ public class Usuarios {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public LocalDate getFechanac() {
-        return fechanac;
-    }
-
-    public void setFechanac(LocalDate fechanac) {
-        this.fechanac = fechanac;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getNombre() {
@@ -99,19 +67,52 @@ public class Usuarios {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public LocalDate getFechanac() {
+        return fechanac;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setFechanac(LocalDate fechanac) {
+        this.fechanac = fechanac;
     }
 
-    public String getTipousuario() {
-        return tipousuario;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setTipousuario(String tipousuario) {
-        this.tipousuario = tipousuario;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
+

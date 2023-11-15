@@ -2,7 +2,6 @@ package pe.edu.upc.tf_arquitectura_web.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.tf_arquitectura_web.dtos.UsuariosDTO;
 import pe.edu.upc.tf_arquitectura_web.entities.Usuarios;
@@ -28,8 +27,14 @@ public class UsuariosController {
         pS.insert(p);
 
     }
+    @PutMapping
+    public void modificar(@RequestBody UsuariosDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Usuarios p = m.map(dto, Usuarios.class);
+        pS.insert(p);
+
+    }
     @GetMapping
-    @PreAuthorize("hasAuthority('USER')")
     public List<UsuariosDTO>listar(){
         return pS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -47,7 +52,6 @@ public class UsuariosController {
         return dto;
     }
     @GetMapping("/ordensegunfecha")
-    @PreAuthorize("hasAnyAuthority('USER')")
     public List<OrdenUsuariosDTO> ordensegunfechanacimiento(){
         List<String[]> lista=pS.ordensegunfechanacimiento();
         List<OrdenUsuariosDTO> listaDTO=new ArrayList<>();
