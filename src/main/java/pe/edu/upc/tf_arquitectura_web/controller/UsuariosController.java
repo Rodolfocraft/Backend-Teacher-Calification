@@ -57,9 +57,8 @@ public class UsuariosController {
         List<OrdenUsuariosDTO> listaDTO=new ArrayList<>();
         for(String[] data:lista){
             OrdenUsuariosDTO dto=new OrdenUsuariosDTO();
-            dto.setNombreusuario(data[0]);
-            dto.setApellidousuario(data[1]);
-            dto.setFechanacusuario(LocalDate.parse(data[2]));
+            dto.setGenero(data[0]);
+            dto.setContadorusuarios(Integer.parseInt(data[1]));
             listaDTO.add(dto);
         }
         return listaDTO;
