@@ -5,16 +5,18 @@ import javax.persistence.*;
 // crud administrador
 
 @Entity
-@Table(name = "Administrador")
+@Table(name = "administrador")
 public class Administrador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "codAdministrador",length = 60,nullable = false)
     private int codAdministrador;
+
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuarios usuarios;
+
 
     public Administrador() {
     }

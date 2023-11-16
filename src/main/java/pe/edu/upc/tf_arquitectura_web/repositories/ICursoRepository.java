@@ -12,10 +12,11 @@ import java.util.List;
 @Repository
 public interface ICursoRepository extends JpaRepository<Curso, Integer> {
 
-    @Query(value = "select u.nombre_universidad, count (c.id_curso)\n" +
-            " from universidad u inner join curso c\n" +
-            " on u.id = c.id\n" +
-            " group by u.nombre_universidad",nativeQuery = true)
+    @Query(value = "select u.nombre_universidad, count (cu.id)\n" +
+            "from universidad u \n" +
+            "inner join calificacion c on u.id=c.id_universidad\n" +
+            "inner join curso cu on c.id_curso=cu.id\n" +
+            "group by u.nombre_universidad",nativeQuery = true)
 
     public List<String[]> cantidadDeCursosPorUniversidad();
 

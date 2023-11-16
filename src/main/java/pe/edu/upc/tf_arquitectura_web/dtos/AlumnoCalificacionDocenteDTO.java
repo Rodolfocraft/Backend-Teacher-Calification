@@ -1,6 +1,7 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
 
-public class StudentsCalificaciónDocenteDTO {
+public class AlumnoCalificacionDocenteDTO {
+
     private String nameProfesor;
     private int quantityCalifications;
 

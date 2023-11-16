@@ -15,24 +15,35 @@ public class Profesores {
     @Column(name = "apellido",length = 45,nullable = false)
     private String apellido;
 
-    @ManyToOne
-    @JoinColumn(name = "CalificacionDocente")
-    private CalificacionDocente calificacionDocente;
+    @Column(name = "fechanac", nullable = false)
+    private LocalDate fechanac;
 
-    @ManyToOne
-    @JoinColumn(name= "idUniversity")
-    private Universidad universidad;
+    @Column(name = "especialidad",length = 45,nullable = false)
+    private String especialidad;
+
+    @Column(name = "grado",length = 45,nullable = false)
+    private String grado;
+
+    @Column(name = "genero", length = 15, nullable = false)
+    private String genero;
+
+    @Column(name = "aniosexperiencia", nullable = false)
+    private int aniosexperiencia;
+
 
     public Profesores() {
     }
 
-    public Profesores(int id, String codProfesor, String nombre, String apellido, CalificacionDocente calificacionDocente, Universidad universidad) {
+    public Profesores(int id, String codProfesor, String nombre, String apellido, LocalDate fechanac, String especialidad, String grado, String genero, int aniosexperiencia) {
         this.id = id;
         this.codProfesor = codProfesor;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.calificacionDocente = calificacionDocente;
-        this.universidad = universidad;
+        this.fechanac = fechanac;
+        this.especialidad = especialidad;
+        this.grado = grado;
+        this.genero = genero;
+        this.aniosexperiencia = aniosexperiencia;
     }
 
     public int getId() {
@@ -67,19 +78,43 @@ public class Profesores {
         this.apellido = apellido;
     }
 
-    public CalificacionDocente getCalificacionDocente() {
-        return calificacionDocente;
+    public LocalDate getFechanac() {
+        return fechanac;
     }
 
-    public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
-        this.calificacionDocente = calificacionDocente;
+    public void setFechanac(LocalDate fechanac) {
+        this.fechanac = fechanac;
     }
 
-    public Universidad getUniversidad() {
-        return universidad;
+    public String getEspecialidad() {
+        return especialidad;
     }
 
-    public void setUniversidad(Universidad universidad) {
-        this.universidad = universidad;
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
+    public String getGrado() {
+        return grado;
+    }
+
+    public void setGrado(String grado) {
+        this.grado = grado;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getAniosexperiencia() {
+        return aniosexperiencia;
+    }
+
+    public void setAniosexperiencia(int aniosexperiencia) {
+        this.aniosexperiencia = aniosexperiencia;
     }
 }

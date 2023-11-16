@@ -1,12 +1,20 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
 
-import pe.edu.upc.tf_arquitectura_web.entities.CalificacionDocente;
+import javax.persistence.Column;
 
 public class CursoDTO {
     private int id;
     private String codCurso;
     private String nombreCurso;
-    private CalificacionDocente calificacionDocente;
+
+    private int creditos;
+
+    private int semestre;
+
+    private int horasdictadas;
+
+    private String modalidad;
+
 
     public int getId() {
         return id;
@@ -32,11 +40,35 @@ public class CursoDTO {
         this.nombreCurso = nombreCurso;
     }
 
-    public CalificacionDocente getCalificacionDocente() {
-        return calificacionDocente;
+    public int getCreditos() {
+        return creditos;
     }
 
-    public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
-        this.calificacionDocente = calificacionDocente;
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
+    }
+
+    public int getHorasdictadas() {
+        return horasdictadas;
+    }
+
+    public void setHorasdictadas(int horasdictadas) {
+        this.horasdictadas = horasdictadas;
+    }
+
+    public String getModalidad() {
+        return modalidad;
+    }
+
+    public void setModalidad(String modalidad) {
+        this.modalidad = modalidad;
     }
 }

@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface IProfesoresRepository extends JpaRepository<Profesores, Integer>{
     @Query(value = "select u.nombre_universidad, count (p.id)\n" +
-            " from universidad u inner join profesores p\n" +
-            " on u.id = p.id\n" +
-            " group by u.nombre_universidad",nativeQuery = true)
-
+            "from universidad u \n" +
+            "inner join calificacion c on u.id=c.id_universidad\n" +
+            "inner join profesores p on c.id_profesores=p.id\n" +
+            "group by u.nombre_universidad",nativeQuery = true)
     public List<String[]> cantidadDeProfesoresPorUniversidad();
 }

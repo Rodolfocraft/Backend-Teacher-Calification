@@ -2,60 +2,65 @@ package pe.edu.upc.tf_arquitectura_web.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.tf_arquitectura_web.dtos.AlumnoDTO;
 import pe.edu.upc.tf_arquitectura_web.dtos.StudentsDTO;
-import pe.edu.upc.tf_arquitectura_web.entities.Students;
-import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.IStudentsService;
+import pe.edu.upc.tf_arquitectura_web.entities.Alumno;
+import pe.edu.upc.tf_arquitectura_web.serviceinterfaces.IAlumnoService;
+import pe.edu.upc.tf_arquitectura_web.repositories.IAlumnoRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/students")
-public class StudentsController {
+@RequestMapping("/alumno")
+public class AlumnoController {
 
     @Autowired
-    private IStudentsService sS;
+    private IAlumnoService aS;
 
     @PostMapping
-    public void registrar(@RequestBody StudentsDTO dto) {
+    public void registrar(@RequestBody AlumnoDTO dto) {
         ModelMapper m = new ModelMapper();
-        Students s = m.map(dto, Students.class);
-        sS.insert(s);
+        Alumno a = m.map(dto,Alumno.class);
+        aS.insert(a);
+    }
+    @PutMapping
+    public void modificar(@RequestBody AlumnoDTO dto){
+        ModelMapper m=new ModelMapper();
+        Alumno a = m.map(dto,Alumno.class);
+        aS.insert(a);
     }
 
     @GetMapping
     //@PreAuthorize("hasAuthority('ADMIN')")
-    public List<StudentsDTO> listar() {
-        return sS.list().stream().map(x -> {
+    public List<AlumnoDTO> listar() {
+        return aS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, StudentsDTO.class);
+            return m.map(x, AlumnoDTO.class);
         }).collect(Collectors.toList());
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
-        sS.delete(id);
+        aS.delete(id);
     }
 
     @GetMapping("/{id}")
-    public StudentsDTO listId(@PathVariable("id") Integer id){
+    public AlumnoDTO listId(@PathVariable("id") Integer id){
         ModelMapper m = new ModelMapper();
-        StudentsDTO dto = m.map(sS.listId(id), StudentsDTO.class);
+        AlumnoDTO dto = m.map(aS.listId(id), AlumnoDTO.class);
         return dto;
     }
     @GetMapping("/cantidaddealumnos")
-    @PreAuthorize("hasAuthority('USER')")
     public List<StudentsDTO> cantidadDeestudiantesporsucodigo() {
-        List<String[]> lista = sS.cantidadDeestudiantesporsucodigo();
+        List<String[]> lista = aS.cantidadDeestudiantesporsucodigo();
         List<StudentsDTO> listaDTO = new ArrayList<>();
         for (String[] data : lista) {
             StudentsDTO dto = new StudentsDTO();
-            dto.setCodStudents(data[1]);
-
+            dto.setCarreraprofesional(data[0]);
+            dto.setContadoralumnos(Integer.parseInt(data[1]));
             listaDTO.add(dto);
         }
         return listaDTO;

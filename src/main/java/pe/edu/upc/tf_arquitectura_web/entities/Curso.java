@@ -13,18 +13,30 @@ public class Curso {
     @Column(name = "nombreCurso", length = 80, nullable = false)
     private String nombreCurso;
 
-    @ManyToOne
-    @JoinColumn(name = "CalificacionDocente")
-    private CalificacionDocente calificacionDocente;
+    @Column(name = "creditos", nullable = false)
+    private int creditos;
+
+    @Column(name = "semestre", nullable = false)
+    private int semestre;
+
+    @Column(name = "horasdictadas", nullable = false)
+    private int horasdictadas;
+
+    @Column(name = "modalidad", length = 80, nullable = false)
+    private String modalidad;
+
 
     public Curso() {
     }
 
-    public Curso(int id, String codCurso, String nombreCurso, CalificacionDocente calificacionDocente) {
+    public Curso(int id, String codCurso, String nombreCurso, int creditos, int semestre, int horasdictadas, String modalidad) {
         this.id = id;
         this.codCurso = codCurso;
         this.nombreCurso = nombreCurso;
-        this.calificacionDocente = calificacionDocente;
+        this.creditos = creditos;
+        this.semestre = semestre;
+        this.horasdictadas = horasdictadas;
+        this.modalidad = modalidad;
     }
 
     public int getId() {
@@ -51,11 +63,35 @@ public class Curso {
         this.nombreCurso = nombreCurso;
     }
 
-    public CalificacionDocente getCalificacionDocente() {
-        return calificacionDocente;
+    public int getCreditos() {
+        return creditos;
     }
 
-    public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
-        this.calificacionDocente = calificacionDocente;
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
+
+    public int getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
+    }
+
+    public int getHorasdictadas() {
+        return horasdictadas;
+    }
+
+    public void setHorasdictadas(int horasdictadas) {
+        this.horasdictadas = horasdictadas;
+    }
+
+    public String getModalidad() {
+        return modalidad;
+    }
+
+    public void setModalidad(String modalidad) {
+        this.modalidad = modalidad;
     }
 }

@@ -2,7 +2,6 @@ package pe.edu.upc.tf_arquitectura_web.entities;
 
 
 import javax.persistence.*;
-import java.time.LocalDate;
 @Entity
 @Table(name = "CarrerasProfesionales")
 public class CarrerasProfesionales {
@@ -13,19 +12,24 @@ public class CarrerasProfesionales {
     private String codCarreraProfesional;
     @Column(name = "nombreCarreraProfesional",length = 100,nullable = false)
     private String nombreCarreraProfesional;
+    @Column(name = "tipo", length = 45, nullable = false)
+    private String tipo;
+    @Column(name = "facultad", length = 45, nullable = false)
+    private String facultad;
+    @Column(name = "ciclo", nullable = false)
+    private int ciclo;
 
-    @ManyToOne
-    @JoinColumn(name = "CalificacionDocente")
-    private CalificacionDocente calificacionDocente;
 
     public CarrerasProfesionales() {
     }
 
-    public CarrerasProfesionales(int id, String codCarreraProfesional, String nombreCarreraProfesional, CalificacionDocente calificacionDocente) {
+    public CarrerasProfesionales(int id, String codCarreraProfesional, String nombreCarreraProfesional, String tipo, String facultad, int ciclo) {
         this.id = id;
         this.codCarreraProfesional = codCarreraProfesional;
         this.nombreCarreraProfesional = nombreCarreraProfesional;
-        this.calificacionDocente = calificacionDocente;
+        this.tipo = tipo;
+        this.facultad = facultad;
+        this.ciclo = ciclo;
     }
 
     public int getId() {
@@ -52,11 +56,27 @@ public class CarrerasProfesionales {
         this.nombreCarreraProfesional = nombreCarreraProfesional;
     }
 
-    public CalificacionDocente getCalificacionDocente() {
-        return calificacionDocente;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setCalificacionDocente(CalificacionDocente calificacionDocente) {
-        this.calificacionDocente = calificacionDocente;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getFacultad() {
+        return facultad;
+    }
+
+    public void setFacultad(String facultad) {
+        this.facultad = facultad;
+    }
+
+    public int getCiclo() {
+        return ciclo;
+    }
+
+    public void setCiclo(int ciclo) {
+        this.ciclo = ciclo;
     }
 }
