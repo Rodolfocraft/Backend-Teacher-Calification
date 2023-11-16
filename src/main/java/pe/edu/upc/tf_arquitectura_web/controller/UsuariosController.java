@@ -51,7 +51,7 @@ public class UsuariosController {
         UsuariosDTO dto = m.map(pS.listId(id), UsuariosDTO.class);
         return dto;
     }
-    @GetMapping("/ordensegunfecha")
+    @GetMapping("/cantidadporgenero")
     public List<OrdenUsuariosDTO> ordensegunfechanacimiento(){
         List<String[]> lista=pS.ordensegunfechanacimiento();
         List<OrdenUsuariosDTO> listaDTO=new ArrayList<>();
