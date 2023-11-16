@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface IUsuariosRepository extends JpaRepository<Usuarios, Integer>{
-    @Query(value = "select nombre, apellido, fechanac from Usuarios order by fechanac asc",nativeQuery = true)
+    @Query(value = "select genero,count(*) from usuarios group by genero",nativeQuery = true)
     public List<String[]> ordensegunfechanacimiento();
 }
