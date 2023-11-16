@@ -1,33 +1,22 @@
 package pe.edu.upc.tf_arquitectura_web.dtos;
-import java.time.LocalDate;
 public class OrdenUsuariosDTO {
 
-    private String nombreusuario;
-    private String apellidousuario;
-    private LocalDate fechanacusuario;
+    private String genero;
+    private int contadorusuarios;
 
-    public String getNombreusuario() {
-        return nombreusuario;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setNombreusuario(String nombreusuario) {
-        this.nombreusuario = nombreusuario;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-    public String getApellidousuario() {
-        return apellidousuario;
+    public int getContadorusuarios() {
+        return contadorusuarios;
     }
 
-    public void setApellidousuario(String apellidousuario) {
-        this.apellidousuario = apellidousuario;
+    public void setContadorusuarios(int contadorusuarios) {
+        this.contadorusuarios = contadorusuarios;
     }
-
-    public LocalDate getFechanacusuario() {
-        return fechanacusuario;
-    }
-
-    public void setFechanacusuario(LocalDate fechanacusuario) {
-        this.fechanacusuario = fechanacusuario;
-    }
-
 }
